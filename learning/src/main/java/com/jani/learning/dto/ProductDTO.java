@@ -1,23 +1,17 @@
-package com.jani.learning.entity;
+package com.jani.learning.dto;
 
-import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+import com.jani.learning.entity.Category;
+import lombok.*;
 
-@Entity
-@Getter @Setter
-//@Table(name = "product")
-public class Product {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+@Setter @Getter @AllArgsConstructor @NoArgsConstructor
+public class ProductDTO {
+
     private int id;
     private String name;
     private double price;
     private String description;
 
-    @ManyToOne
-    @JoinColumn(name = "category_id", nullable = false)
-    private Category category;
+    private Long categoryId;
 
     public int getId() {
         return id;
@@ -51,11 +45,11 @@ public class Product {
         this.description = description;
     }
 
-    public Category getCategory() {
-        return category;
+    public Long getCategoryId() {
+        return categoryId;
     }
 
-    public void setCategory(Category category) {
-        this.category = category;
+    public void setCategoryId(Long categoryId) {
+        this.categoryId = categoryId;
     }
 }

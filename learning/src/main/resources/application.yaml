@@ -1,2 +1,8 @@
-#student:
-  #name: pooja
+student:
+  name: pooja
+
+spring:
+  datasource:
+    url: jdbc:h2:mem:testDB
+  jpa:
+    show-sql: true
